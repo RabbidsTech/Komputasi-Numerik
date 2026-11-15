@@ -1,3 +1,7 @@
+--------------------------------------------------------------------------------
+BAGIAN 1: PROMPT AI UNTUK SISTEM PERSAMAAN LINEAR
+--------------------------------------------------------------------------------
+
 Prompt 1
 Bantu aku bikin kode Python di Google Colab untuk menyelesaikan sistem persamaan linear dengan metode Gauss-Jordan.
 Pakai pivoting parsial, dan tampilkan matriksnya di setiap langkah supaya prosesnya kelihatan. Pakai Bahasa Indonesia
@@ -15,3 +19,20 @@ dan konstantanya.
 
 Prompt 5
 Terakhir, tulis penjelasan singkat tentang metode Gauss-Jordan dan cara kerja kodenya dalam format markdown yang rapi.
+
+--------------------------------------------------------------------------------
+BAGIAN 2: PROMPT AI UNTUK PERSAMAAN NON-LINEAR (METODE BISECTION)
+--------------------------------------------------------------------------------
+
+Prompt 1 (Pembuatan Algoritma Bisection):
+"Buatkan dokumen algoritma terstruktur dan pseudocode dalam bahasa Indonesia
+untuk menyelesaikan persamaan non-linear menggunakan metode Bisection (Bagi Dua),
+lengkap dengan validasi syarat f(a)*f(b) < 0 dan kriteria berhenti berdasarkan
+toleransi galat."
+
+Prompt 2 (Pembuatan Kode Python Google Colab & Visualisasi):
+"Buatkan kode Python yang terbagi dalam beberapa cell Google Colab untuk
+mengimplementasikan metode Bisection pada persamaan f(x) = x^3 - 4x - 9 di
+interval [2, 3]. Sertakan tabel iterasi, verifikasi dengan scipy.optimize.bisect,
+visualisasi grafik dengan matplotlib, mode input interaktif, serta komentar
+penjelasan detail di setiap baris kode."

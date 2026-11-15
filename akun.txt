@@ -1,0 +1,15 @@
+=== INFORMASI AKUN TUGAS KOMPUTASI NUMERIK ===
+Nama Mahasiswa : Kresna Tri Samudra
+NIM            : 202511420050
+Program Studi  : Informatika (Fakultas Teknik)
+Universitas    : Universitas Dr. Soetomo
+
+1. GitHub Account & Repository:
+   - Profil GitHub : https://github.com/RabbidsTech
+   - Repository    : https://github.com/RabbidsTech/Komputasi-Numerik
+
+2. Google Colaboratory Research Account:
+   - Akun Colab    : https://colab.research.google.com/drive/1Ts9tPkOd-MQh_FIyvhF0Mk38BJzMc4nf?usp=sharing
+
+3. LinkedIn Account:
+   - Profil LinkedIn : https://www.linkedin.com/in/kresna-rabbids

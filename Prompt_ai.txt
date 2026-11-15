@@ -1,0 +1,17 @@
+Prompt 1
+Bantu aku bikin kode Python di Google Colab untuk menyelesaikan sistem persamaan linear dengan metode Gauss-Jordan.
+Pakai pivoting parsial, dan tampilkan matriksnya di setiap langkah supaya prosesnya kelihatan. Pakai Bahasa Indonesia
+untuk komentar dan nama fungsinya.
+
+Prompt 2
+Sekarang kasih contoh pemakaiannya dengan sistem 3 persamaan ini: 2x + y - z = 8, -3x - y + 2z = -11, dan -2x + y + 2z = -3.
+
+Prompt 3
+Tambahkan kode untuk mengecek hasilnya dengan numpy, lalu bandingkan dengan hasil dari kode kita.
+
+Prompt 4
+Buat juga versi yang bisa diisi sendiri lewat input(), jadi aku bisa memasukkan jumlah persamaan, koefisien,
+dan konstantanya.
+
+Prompt 5
+Terakhir, tulis penjelasan singkat tentang metode Gauss-Jordan dan cara kerja kodenya dalam format markdown yang rapi.

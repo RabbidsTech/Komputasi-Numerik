@@ -1,0 +1,75 @@
+================================================================================
+ALGORITMA PENYELESAIAN PERSAMAAN NON-LINEAR
+Metode: Bisection (Metode Bagi Dua / Bolzano)
+================================================================================
+
+Identitas Mahasiswa:
+- Nama          : Kresna Tri Samudra
+- NIM           : 202511420050
+- Program Studi : Informatika (Fakultas Teknik)
+- Universitas   : Universitas Dr. Soetomo
+- Mata Kuliah   : Komputasi Numerik
+
+--------------------------------------------------------------------------------
+1. DESKRIPSI MASALAH & KONSEP METODE
+--------------------------------------------------------------------------------
+Diberikan sebuah persamaan non-linear f(x) = 0 yang kontinu pada interval
+tertutup [a, b]. Metode Bisection mencari akar persamaan dengan cara membagi
+dua interval [a, b] secara berulang menjadi sub-interval yang lebih kecil,
+kemudian memilih sub-interval yang tetap mengurung akar berdasarkan Teorema
+Nilai Antara (Intermediate Value Theorem), yaitu syarat f(a) * f(b) < 0.
+
+--------------------------------------------------------------------------------
+2. SPESIFIKASI INPUT DAN OUTPUT
+--------------------------------------------------------------------------------
+- Input  :
+  1. Fungsi non-linear kontinu f(x).
+  2. Batas bawah interval awal (a) dan batas atas interval awal (b).
+  3. Toleransi galat / error (epsilon, misal 10^-6).
+  4. Batas maksimum iterasi (max_iter).
+- Output :
+  1. Tabel proses iterasi berisi nilai a, b, titik tengah c, f(c), dan galat.
+  2. Nilai akar hampiran x = c beserta jumlah iterasi yang ditempuh.
+
+--------------------------------------------------------------------------------
+3. LANGKAH-LANGKAH ALGORITMA (PSEUDOCODE TERSTRUKTUR)
+--------------------------------------------------------------------------------
+MULAI
+
+Langkah 1: Inisialisasi & Validasi Interval Awal
+  1.1 Definisikan fungsi persamaan non-linear f(x).
+  1.2 Input batas bawah 'a', batas atas 'b', toleransi 'eps', dan 'max_iter'.
+  1.3 Hitung nilai fungsi pada kedua ujung interval: fa = f(a) dan fb = f(b).
+  1.4 Periksa syarat keberadaan akar:
+      Jika (fa * fb) >= 0, maka cetak pesan "Interval tidak valid: f(a) dan
+      f(b) harus memiliki tanda berlawanan" dan HENTIKAN algoritma.
+
+Langkah 2: Proses Iterasi Pembagian Interval (Looping)
+  Untuk iterasi = 1 sampai max_iter, lakukan:
+
+  2.1 Hitung titik tengah interval:
+      c = (a + b) / 2
+  2.2 Evaluasi nilai fungsi pada titik tengah:
+      fc = f(c)
+  2.3 Hitung galat hampiran (setengah lebar interval saat ini):
+      galat = |b - a| / 2
+  2.4 Tampilkan baris tabel iterasi (iterasi, a, b, c, fc, galat).
+
+  2.5 Pemeriksaan Kriteria Berhenti (Konvergensi):
+      Jika |fc| < eps ATAU galat < eps, maka:
+      - Akar hampiran telah ditemukan pada x = c.
+      - KELUAR dari perulangan (loncat ke Langkah 3).
+
+  2.6 Pembaruan Batas Interval Baru:
+      Jika (fa * fc) < 0, maka akar berada pada sub-interval kiri [a, c]:
+        - Tetapkan b = c
+        - Tetapkan fb = fc
+      Selain itu, akar berada pada sub-interval kanan [c, b]:
+        - Tetapkan a = c
+        - Tetapkan fa = fc
+
+Langkah 3: Output Hasil Akhir
+  3.1 Cetak nilai akar hampiran akhir x = c beserta nilai f(c) dan total iterasi.
+
+SELESAI
+================================================================================

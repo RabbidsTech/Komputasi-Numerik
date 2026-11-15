@@ -1,0 +1,84 @@
+================================================================================
+ALGORITMA PENYELESAIAN SISTEM PERSAMAAN LINEAR 3 VARIABEL (SPL3V)
+Metode: Eliminasi Gauss-Jordan dengan Pivoting Parsial
+================================================================================
+
+Identitas Mahasiswa:
+- Nama          : Kresna Tri Samudra
+- NIM           : 202511420050
+- Program Studi : Informatika (Fakultas Teknik)
+- Universitas   : Universitas Dr. Soetomo
+- Mata Kuliah   : Komputasi Numerik
+
+--------------------------------------------------------------------------------
+1. DESKRIPSI MASALAH & KONSEP METODE
+--------------------------------------------------------------------------------
+Diberikan Sistem Persamaan Linear 3 Variabel (SPL3V) dalam bentuk persamaan
+matriks A * x = b:
+    a11*x1 + a12*x2 + a13*x3 = b1
+    a21*x1 + a22*x2 + a23*x3 = b2
+    a31*x1 + a32*x2 + a33*x3 = b3
+
+Metode Eliminasi Gauss-Jordan menyelesaikan sistem tersebut dengan mengubah
+matriks perluasan (augmented matrix) [A | b] berukuran 3x4 menjadi bentuk
+eselon baris tereduksi [I | x] menggunakan Operasi Baris Elementer (OBE),
+sehingga nilai x1, x2, dan x3 langsung diperoleh pada kolom terakhir tanpa
+memerlukan tahap substitusi balik (back-substitution).
+
+--------------------------------------------------------------------------------
+2. SPESIFIKASI INPUT DAN OUTPUT
+--------------------------------------------------------------------------------
+- Input  :
+  1. Matriks koefisien A berukuran 3x3 (bilangan riil).
+  2. Vektor konstanta b berukuran 3x1 (bilangan riil).
+- Output :
+  1. Tahapan perubahan matriks augmented [A | b] pada setiap operasi baris.
+  2. Nilai solusi akhir variabel x1, x2, dan x3 (atau pesan matriks singular
+     apabila sistem tidak memiliki solusi tunggal).
+
+--------------------------------------------------------------------------------
+3. LANGKAH-LANGKAH ALGORITMA (PSEUDOCODE TERSTRUKTUR)
+--------------------------------------------------------------------------------
+MULAI
+
+Langkah 1: Inisialisasi Matriks Augmented
+  1.1 Baca jumlah persamaan n = 3, matriks koefisien A (3x3), dan vektor b (3x1).
+  1.2 Konversi seluruh elemen A dan b ke tipe bilangan desimal (float).
+  1.3 Gabungkan matriks A dan vektor b menjadi matriks augmented M berukuran
+      3x4, di mana kolom 0..2 berisi koefisien A dan kolom 3 berisi konstanta b.
+
+Langkah 2: Proses Eliminasi Gauss-Jordan (Iterasi Kolom Pivot)
+  Untuk setiap kolom 'kol' dari 0 sampai (n - 1), lakukan:
+
+  2.1 Tahap Pivoting Parsial (Pemilihan Pivot Terbaik):
+      a. Cari indeks baris 'pivot' pada rentang baris 'kol' sampai (n - 1) yang
+         memiliki nilai mutlak terbesar pada kolom 'kol':
+         pivot = argmax(|M[r][kol]|) untuk r = kol, ..., n - 1.
+      b. Periksa syarat singularitas: jika |M[pivot][kol]| < 10^-12, maka
+         cetak pesan "Matriks singular: tidak ada solusi tunggal" dan HENTIKAN
+         algoritma.
+      c. Jika indeks 'pivot' tidak sama dengan 'kol', tukar seluruh elemen
+         baris M[kol] dengan baris M[pivot].
+
+  2.2 Tahap Normalisasi Baris Pivot:
+      a. Simpan nilai elemen diagonal utama saat ini ke variabel p = M[kol][kol].
+      b. Bagi setiap elemen pada baris M[kol] dengan nilai p:
+         M[kol][j] = M[kol][j] / p   (untuk j = 0 sampai n)
+         sehingga elemen diagonal utama M[kol][kol] bernilai 1.
+
+  2.3 Tahap Eliminasi Baris Lain (Atas dan Bawah Diagonal):
+      Untuk setiap baris 'i' dari 0 sampai (n - 1), lakukan:
+      a. Jika i != kol (selain baris pivot aktif):
+         - Ambil nilai faktor pengali: faktor = M[i][kol].
+         - Jika |faktor| > 10^-12, lakukan operasi baris elementer untuk
+           mengenolkannya:
+           M[i][j] = M[i][j] - (faktor * M[kol][j])   (untuk j = 0 sampai n).
+
+Langkah 3: Ekstraksi Solusi & Output
+  3.1 Setelah seluruh kolom diproses dan bagian kiri M menjadi matriks identitas
+      3x3, ambil elemen kolom terakhir M[i][3] untuk i = 0, 1, 2 sebagai nilai
+      x1, x2, dan x3.
+  3.2 Tampilkan nilai x1, x2, dan x3 ke layar.
+
+SELESAI
+================================================================================
